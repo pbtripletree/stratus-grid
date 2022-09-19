@@ -21,12 +21,16 @@ class User extends Model {
     });
   }
 
+  static get hidden() {
+    return ["id", "password", "created_at", "updated_at"];
+  }
+
   comments() {
-    return this.hasMany("App/Models/Comments", "id", "user_id");
+    return this.hasMany("App/Models/Comment");
   }
 
   discussions() {
-    return this.hasMany("App/Models/Discussion", "id", "user_id");
+    return this.hasMany("App/Models/Discussion");
   }
 
   /**

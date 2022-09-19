@@ -5,7 +5,7 @@ const Model = use("Model");
 
 class Discussion extends Model {
   user() {
-    return this.hasOne("App/Models/User", "user_id", "id");
+    return this.belongsTo("App/Models/User");
   }
 
   comments() {

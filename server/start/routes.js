@@ -26,3 +26,15 @@ Route.get("/health", () => ({
 // user
 Route.post("/register", "UserController.register");
 Route.post("/login", "UserController.login");
+
+//discussion
+Route.get("/discussions", "DiscussionController.listDiscussions");
+Route.get("/discussions/search", "DiscussionController.searchDiscussions");
+Route.get("/discussions/:id/comments", "DiscussionController.listComments");
+Route.post("/discussions", "DiscussionController.createDiscussion").middleware(
+  "auth"
+);
+Route.post(
+  "/discussions/:id/comments",
+  "DiscussionController.createComment"
+).middleware("auth");

@@ -14,7 +14,7 @@ class CommentSchema extends Schema {
         .unsigned()
         .references("id")
         .inTable("discussions");
-      table.string("body", 200).notNullable();
+      table.string("text", 200).notNullable();
     });
   }
 
