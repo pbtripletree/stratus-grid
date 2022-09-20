@@ -66,7 +66,6 @@ class ContentController {
         .status(200)
         .json(success(200, "comments found", comments));
     } catch (e) {
-      console.log(e);
       return response.status(500).json(error(500, "list comments error"));
     }
   }
@@ -84,7 +83,6 @@ class ContentController {
         .status(200)
         .json(success(200, "discussions found", discussions));
     } catch (e) {
-      console.log(e);
       return response.status(500).json(error(500, "list discussions error"));
     }
   }

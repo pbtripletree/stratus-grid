@@ -25,8 +25,6 @@ export function Comments() {
     function fetchData() {
       dispatch(listComments(id));
     }
-    console.log(discussion);
-    if (!discussion) console.log("hi");
     fetchData();
   }, []);
 

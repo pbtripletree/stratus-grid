@@ -64,7 +64,6 @@ export const _searchDiscussions = async (text) => {
     method: "get",
     url: `/search/discussions/?query=${text}`,
   });
-  console.log(response);
   if (response.status === 200) return response.body;
   else throw "error searching discussions";
 };

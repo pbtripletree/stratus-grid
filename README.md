@@ -39,6 +39,6 @@ Run the following in order to spin up your tables, create sample data, and start
 
 Open a separate terminal tab, and run `cd ../client && npm install` to install your client dependencies.
 
-Run `npm start`
+Run `npm start`.
 
 You're all set! Browse pre-seeded data, and create an account so you can post some discussions and comments of your own.

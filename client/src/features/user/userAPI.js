@@ -23,7 +23,6 @@ export const registerUser = async (username, email, password) => {
       password,
     },
   });
-  console.log(response);
   if (response.status === 201) return response.body;
   else throw "error creating user";
 };
