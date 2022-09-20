@@ -1,0 +1,23 @@
+{
+  "name": "stratus-grid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pbtripletree/stratus-grid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pbtripletree/stratus-grid/issues"
+  },
+  "homepage": "https://github.com/pbtripletree/stratus-grid#readme",
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3"
+  }
+}
