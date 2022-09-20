@@ -26,6 +26,14 @@
   color: rgb(112, 76, 182);
 }
 
+button {
+  margin: 5px;
+}
+
+input {
+  margin: 2px;
+}
+
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);

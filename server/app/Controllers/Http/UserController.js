@@ -10,7 +10,10 @@ class UserController {
       let token = await auth.generate(user);
       Object.assign(user, token);
       return response.json(
-        success(201, "register success", { token: user.token })
+        success(201, "register success", {
+          username: user.username,
+          token: user.token,
+        })
       );
     } catch (e) {
       return response.json(error({ status: 400, message: "register error" }));
