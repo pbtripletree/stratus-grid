@@ -28,14 +28,14 @@ Route.post("/register", "UserController.register");
 Route.post("/login", "UserController.login");
 
 //discussion
-Route.get("/discussions", "DiscussionController.listDiscussions");
-Route.get("/discussions/:id", "DiscussionController.fetchDiscussion");
-Route.get("/search/discussions", "DiscussionController.searchDiscussions");
-Route.get("/discussions/:id/comments", "DiscussionController.listComments");
-Route.post("/discussions", "DiscussionController.createDiscussion").middleware(
+Route.get("/discussions", "ContentController.listDiscussions");
+Route.get("/discussions/:id", "ContentController.fetchDiscussion");
+Route.get("/search/discussions", "ContentController.searchDiscussions");
+Route.get("/discussions/:id/comments", "ContentController.listComments");
+Route.post("/discussions", "ContentController.createDiscussion").middleware(
   "auth"
 );
 Route.post(
   "/discussions/:id/comments",
-  "DiscussionController.createComment"
+  "ContentController.createComment"
 ).middleware("auth");

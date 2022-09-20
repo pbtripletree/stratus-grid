@@ -9,14 +9,16 @@ class UserController {
       let user = await User.create(request.all());
       let token = await auth.generate(user);
       Object.assign(user, token);
-      return response.json(
+      return response.status(201).json(
         success(201, "register success", {
           username: user.username,
           token: user.token,
         })
       );
     } catch (e) {
-      return response.json(error({ status: 400, message: "register error" }));
+      return response
+        .status(400)
+        .json(error({ status: 400, message: "register error" }));
     }
   }
 
@@ -27,7 +29,7 @@ class UserController {
         let user = await User.findBy("email", email);
         let token = await auth.generate(user);
         Object.assign(user, token);
-        return response.json(
+        return response.status(200).json(
           success(200, "login success", {
             token: user.token,
             username: user.username,
@@ -35,7 +37,9 @@ class UserController {
         );
       }
     } catch (e) {
-      return response.json(error({ status: 401, message: "login error" }));
+      return response
+        .status(401)
+        .json(error({ status: 401, message: "login error" }));
     }
   }
 }

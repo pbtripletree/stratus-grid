@@ -5,14 +5,16 @@ const Comment = use("App/Models/Comment");
 
 const { success, error } = require("../../responses.js");
 
-class DiscussionController {
+class ContentController {
   async createDiscussion({ request, auth, response }) {
     try {
       let discussion = await auth.user.discussions().create(request.all());
       await discussion.load("user");
-      return response.json(success(201, "discussion created", discussion));
+      return response
+        .status(201)
+        .json(success(201, "discussion created", discussion));
     } catch (e) {
-      return response.json(error(500, "create discussion error"));
+      return response.status(500).json(error(500, "create discussion error"));
     }
   }
 
@@ -20,9 +22,11 @@ class DiscussionController {
     try {
       let discussion = await Discussion.find(params.id);
       await discussion.load("user");
-      return response.json(success(200, "discussion found", discussion));
+      return response
+        .status(200)
+        .json(success(200, "discussion found", discussion));
     } catch (e) {
-      return response.json(error(500, "fetch discussion error"));
+      return response.status(500).json(error(500, "fetch discussion error"));
     }
   }
 
@@ -32,9 +36,11 @@ class DiscussionController {
         .with("user")
         .orderBy("created_at", "desc")
         .fetch();
-      return response.json(success(200, "discussions found", discussions));
+      return response
+        .status(200)
+        .json(success(200, "discussions found", discussions));
     } catch (e) {
-      return response.json(error(500, "list discussions error"));
+      return response.status(500).json(error(500, "list discussions error"));
     }
   }
 
@@ -44,9 +50,11 @@ class DiscussionController {
         .comments()
         .create({ discussion_id: params.id, text: request.body.text });
       await comment.load("user");
-      return response.json(success(201, "comment created", comment));
+      return response
+        .status(201)
+        .json(success(201, "comment created", comment));
     } catch (e) {
-      return response.json(error(500, "create comment error"));
+      return response.status(500).json(error(500, "create comment error"));
     }
   }
 
@@ -54,10 +62,12 @@ class DiscussionController {
     try {
       let discussion = await Discussion.find(params.id);
       let comments = await discussion.comments().with("user").fetch();
-      return response.json(success(200, "comments found", comments));
+      return response
+        .status(200)
+        .json(success(200, "comments found", comments));
     } catch (e) {
       console.log(e);
-      return response.json(error(500, "list comments error"));
+      return response.status(500).json(error(500, "list comments error"));
     }
   }
 
@@ -70,12 +80,14 @@ class DiscussionController {
         })
         .with("user")
         .fetch();
-      return response.json(success(200, "discussions found", discussions));
+      return response
+        .status(200)
+        .json(success(200, "discussions found", discussions));
     } catch (e) {
       console.log(e);
-      return response.json(error(500, "list discussions error"));
+      return response.status(500).json(error(500, "list discussions error"));
     }
   }
 }
 
-module.exports = DiscussionController;
+module.exports = ContentController;
