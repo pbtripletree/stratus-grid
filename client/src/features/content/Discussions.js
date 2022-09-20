@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   listDiscussions,
+  searchDiscussions,
   createDiscussion,
   selectDiscussions,
   setDiscussion,
@@ -15,18 +16,32 @@ export function Discussions() {
   const discussions = useSelector(selectDiscussions);
   const username = useSelector(selectUsername);
   const [title, setTitle] = useState("");
+  const [search, setSearch] = useState("");
   const token = useSelector(selectToken);
 
   useEffect(() => {
     function fetchData() {
       dispatch(listDiscussions());
     }
-    fetchData();
+    if (!discussions.length) fetchData();
   }, []);
 
   return (
     <div className={styles.container}>
       <h3>Discussions</h3>
+      <input
+        placeholder="comment text"
+        onChange={(e) => setSearch(e.target.value)}
+      ></input>
+      <button
+        onClick={() => {
+          dispatch(searchDiscussions(search));
+          setSearch("");
+        }}
+      >
+        search
+      </button>
+      <br />
       {!username ? (
         <Link to="/login">
           <button>Login to post</button>

@@ -72,7 +72,8 @@ class DiscussionController {
         .fetch();
       return response.json(success(200, "discussions found", discussions));
     } catch (e) {
-      return response.json(error(500, "list comments error"));
+      console.log(e);
+      return response.json(error(500, "list discussions error"));
     }
   }
 }

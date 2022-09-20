@@ -40,6 +40,13 @@ export const listDiscussions = createAsyncThunk(
   }
 );
 
+export const searchDiscussions = createAsyncThunk(
+  "content/searchDiscussions",
+  async (text) => {
+    return _searchDiscussions(text);
+  }
+);
+
 export const listComments = createAsyncThunk(
   "content/listComments",
   async (id) => {
@@ -59,7 +66,6 @@ export const contentSlice = createSlice({
   initialState,
   reducers: {
     setDiscussion: (state, action) => {
-      console.log(action);
       state.selectedDiscussion = action.payload;
     },
   },
@@ -83,6 +89,13 @@ export const contentSlice = createSlice({
         state.status = "loading";
       })
       .addCase(listDiscussions.fulfilled, (state, action) => {
+        state.discussions = action.payload;
+        state.status = "idle";
+      })
+      .addCase(searchDiscussions.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(searchDiscussions.fulfilled, (state, action) => {
         state.discussions = action.payload;
         state.status = "idle";
       })

@@ -13,7 +13,6 @@ export const _createDiscussion = async (token, title) => {
   });
   if (response.status === 201) return response.body;
   else {
-    console.log("error");
     throw "error creating discussion";
   }
 };
@@ -56,7 +55,6 @@ export const _listComments = async (id) => {
     method: "get",
     url: `/discussions/${id}/comments`,
   });
-  console.log(response);
   if (response.status === 200) return response.body;
   else throw "error fetching comments";
 };
@@ -64,8 +62,9 @@ export const _listComments = async (id) => {
 export const _searchDiscussions = async (text) => {
   const response = await request({
     method: "get",
-    url: `/discussions?query=${text}`,
+    url: `/search/discussions/?query=${text}`,
   });
+  console.log(response);
   if (response.status === 200) return response.body;
   else throw "error searching discussions";
 };
