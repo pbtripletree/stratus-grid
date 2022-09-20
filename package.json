@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "npm-run-all precommit:*"
+    "precommit": "npm-run-all precommit:*",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",

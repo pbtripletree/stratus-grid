@@ -121,7 +121,7 @@ test("discussions searched", async ({ client, assert }) => {
   assert.plan(3);
   let user = await createUser();
   const discussion = await createDiscussion(user);
-  const discussion2 = Discussion.create({
+  const discussion2 = await Discussion.create({
     user_id: user.id,
     title: "another test",
   });
