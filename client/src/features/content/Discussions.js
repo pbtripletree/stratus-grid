@@ -4,16 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   listDiscussions,
   createDiscussion,
-  selectStatus,
   selectDiscussions,
+  setDiscussion,
 } from "./contentSlice";
-
 import { selectUsername, selectToken } from "../user/userSlice";
+import styles from "./Content.module.css";
 
 export function Discussions() {
   const dispatch = useDispatch();
   const discussions = useSelector(selectDiscussions);
-  const status = useSelector(selectStatus);
   const username = useSelector(selectUsername);
   const [title, setTitle] = useState("");
   const token = useSelector(selectToken);
@@ -26,14 +25,8 @@ export function Discussions() {
   }, []);
 
   return (
-    <div>
-      <span>Discussions</span>
-      <div>
-        {discussions.map((discussion) => [
-          <h3>{discussion.title}</h3>,
-          <p>by {discussion.user.username}</p>,
-        ])}
-      </div>
+    <div className={styles.container}>
+      <h3>Discussions</h3>
       {!username ? (
         <Link to="/login">
           <button>Login to post</button>
@@ -44,11 +37,32 @@ export function Discussions() {
             placeholder="discussion title"
             onChange={(e) => setTitle(e.target.value)}
           ></input>,
-          <button onClick={() => dispatch(createDiscussion({ token, title }))}>
+          <button
+            onClick={() => {
+              dispatch(createDiscussion({ token, title }));
+              setTitle("");
+            }}
+          >
             Post
           </button>,
         ]
       )}
+      <div>
+        {discussions.map((discussion) => (
+          <div className={styles.content}>
+            <p className={styles.title}>
+              <b>{discussion.title}</b>
+              <br />
+              posted by {discussion.user.username}
+            </p>
+            <Link to={"/discussions/" + discussion.id}>
+              <button onClick={() => dispatch(setDiscussion(discussion))}>
+                View
+              </button>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

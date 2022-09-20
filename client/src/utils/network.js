@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { selectToken } from "../features/user/userSlice";
 
 const client = axios.create({
   baseURL: `${process.env.REACT_APP_API_URL}`,

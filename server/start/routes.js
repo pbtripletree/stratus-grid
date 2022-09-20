@@ -29,6 +29,7 @@ Route.post("/login", "UserController.login");
 
 //discussion
 Route.get("/discussions", "DiscussionController.listDiscussions");
+Route.get("/discussions/:id", "DiscussionController.fetchDiscussion");
 Route.get("/discussions/search", "DiscussionController.searchDiscussions");
 Route.get("/discussions/:id/comments", "DiscussionController.listComments");
 Route.post("/discussions", "DiscussionController.createDiscussion").middleware(

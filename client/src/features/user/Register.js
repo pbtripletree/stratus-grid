@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { register, selectUsername, selectRegisterError } from "./userSlice";
+import styles from "./User.module.css";
 
 export function Register() {
   const error = useSelector(selectRegisterError);
@@ -13,7 +14,8 @@ export function Register() {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <div className={styles.authForm}>
+      <h3>Register</h3>
       <input
         placeholder="username"
         onChange={(e) => setUsername(e.target.value)}
@@ -23,12 +25,11 @@ export function Register() {
         placeholder="password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <br />
       <button onClick={() => dispatch(register({ username, email, password }))}>
         Register
       </button>
       <Link to="/login">
-        <button>Home</button>
+        <button>Login</button>
       </Link>
       {rUsername && <span>welcome {rUsername}!</span>}
       {error && <span>{error}</span>}

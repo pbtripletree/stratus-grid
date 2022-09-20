@@ -18,32 +18,45 @@ export const _createDiscussion = async (token, title) => {
   }
 };
 
+export const _fetchDiscussion = async (id) => {
+  const response = await request({
+    method: "get",
+    url: `/discussions/${id}`,
+  });
+  if (response.status === 200) return response.body;
+  else throw "error fetching discussion";
+};
+
 export const _listDiscussions = async (title) => {
   const response = await request({
     method: "get",
     url: "/discussions",
   });
   if (response.status === 200) return response.body;
-  else throw "error fetching discussion";
+  else throw "error fetching discussions";
 };
 
-export const _createComment = async (discussionId, text) => {
+export const _createComment = async (token, id, text) => {
   const response = await request({
     method: "post",
-    url: `/discussions/${discussionId}/comments`,
+    url: `/discussions/${id}/comments`,
     data: {
       text,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
   });
   if (response.status === 201) return response.body;
   else throw "error creating comment";
 };
 
-export const _listComments = async (discussionId) => {
+export const _listComments = async (id) => {
   const response = await request({
     method: "get",
-    url: `/discussions/${discussionId}/comments`,
+    url: `/discussions/${id}/comments`,
   });
+  console.log(response);
   if (response.status === 200) return response.body;
   else throw "error fetching comments";
 };

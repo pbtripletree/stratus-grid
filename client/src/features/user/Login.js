@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout, selectUsername, selectLoginError } from "./userSlice";
+import styles from "./User.module.css";
 
 export function Login() {
   const username = useSelector(selectUsername);
@@ -12,7 +13,8 @@ export function Login() {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <div className={styles.authForm}>
+      <h3>Login</h3>
       {username.length ? (
         <span>Logged in as: {username}</span>
       ) : (
@@ -27,7 +29,6 @@ export function Login() {
           />,
         ]
       )}
-      <br />
       {!username.length
         ? [
             <button onClick={() => dispatch(login({ email, password }))}>
@@ -51,7 +52,6 @@ export function Login() {
               <button>Discussions</button>
             </Link>,
           ]}
-      <br />
       {error && <span>{error}</span>}
     </div>
   );
