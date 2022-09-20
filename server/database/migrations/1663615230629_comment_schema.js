@@ -8,12 +8,18 @@ class CommentSchema extends Schema {
     this.create("comments", (table) => {
       table.increments();
       table.timestamps();
-      table.integer("user_id").unsigned().references("id").inTable("users");
+      table
+        .integer("user_id")
+        .unsigned()
+        .references("id")
+        .inTable("users")
+        .notNullable();
       table
         .integer("discussion_id")
         .unsigned()
         .references("id")
-        .inTable("discussions");
+        .inTable("discussions")
+        .notNullable();
       table.string("text", 200).notNullable();
     });
   }
