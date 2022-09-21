@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd server && adonis test
-cd ../client && CI=true npm test
+cd server && npm run lint:fix && adonis test
+cd ../client && npm run lint:fix && CI=true npm test
