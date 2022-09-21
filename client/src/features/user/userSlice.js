@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginUser, registerUser } from "./userAPI";
 
 const initialState = {
+  status: "idle",
   username: "",
   token: "",
-  status: "idle",
   loginError: "",
   registerError: "",
 };
@@ -16,8 +16,9 @@ export const login = createAsyncThunk("user/loginUser", async (info) => {
 });
 
 export const register = createAsyncThunk("user/registerUser", async (info) => {
+  console.log(info);
   const { username, email, password } = info;
-  if (!email || !password || !email) throw "complete all fields";
+  if (!username || !email || !password) throw "complete all fields";
   return registerUser(username, email, password);
 });
 

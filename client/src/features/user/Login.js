@@ -20,11 +20,14 @@ export function Login() {
       ) : (
         [
           <input
-            placeholder="username"
+            placeholder="email"
+            maxlength="254"
             onChange={(e) => setEmail(e.target.value)}
           />,
           <input
             placeholder="password"
+            type="password"
+            maxlength="60"
             onChange={(e) => setPassword(e.target.value)}
           />,
         ]
@@ -52,7 +55,7 @@ export function Login() {
               <button>Discussions</button>
             </Link>,
           ]}
-      {error && <span>{error}</span>}
+      {error && <span class="error">{error}</span>}
     </div>
   );
 }

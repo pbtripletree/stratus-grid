@@ -1,28 +1,33 @@
 import { request } from "../../utils/network";
 
 export const loginUser = async (email, password) => {
-  const response = await request({
-    method: "post",
-    url: "/login",
-    data: {
-      email,
-      password,
-    },
-  });
-  if (response.status === 200) return response.body;
-  else throw "email or password incorrect";
+  try {
+    const response = await request({
+      method: "post",
+      url: "/login",
+      data: {
+        email,
+        password,
+      },
+    });
+    return response.body;
+  } catch (e) {
+    throw "incorrect username or password";
+  }
 };
 
 export const registerUser = async (username, email, password) => {
-  const response = await request({
-    method: "post",
-    url: "/register",
-    data: {
-      username,
-      email,
-      password,
-    },
-  });
-  if (response.status === 201) return response.body;
-  else throw "error creating user";
+  try {
+    const response = await request({
+      method: "post",
+      url: "/register",
+      data: {
+        username,
+        email,
+        password,
+      },
+    });
+  } catch (e) {
+    throw "error registering user";
+  }
 };

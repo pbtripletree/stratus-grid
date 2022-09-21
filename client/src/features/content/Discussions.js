@@ -31,6 +31,8 @@ export function Discussions() {
       <h3>Discussions</h3>
       <input
         placeholder="comment text"
+        maxlength="200"
+        value={search}
         onChange={(e) => setSearch(e.target.value)}
       ></input>
       <button
@@ -50,6 +52,8 @@ export function Discussions() {
         [
           <input
             placeholder="discussion title"
+            maxlength="80"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           ></input>,
           <button

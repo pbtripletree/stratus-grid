@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       <div className="App-header">
         <Routes>
-          <Route path="/discussions" element={<Discussions />} />
-          <Route path="/discussions/:id" element={<Comments />} />
+          <Route path="/" element={<Discussions />} />
+          <Route path="/:id" element={<Comments />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>

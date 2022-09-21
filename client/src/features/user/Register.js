@@ -18,11 +18,18 @@ export function Register() {
       <h3>Register</h3>
       <input
         placeholder="username"
+        maxlength="80"
         onChange={(e) => setUsername(e.target.value)}
       />
-      <input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
+      <input
+        placeholder="email"
+        maxlength="254"
+        onChange={(e) => setEmail(e.target.value)}
+      />
       <input
         placeholder="password"
+        type="password"
+        maxlength="60"
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={() => dispatch(register({ username, email, password }))}>
@@ -31,8 +38,8 @@ export function Register() {
       <Link to="/login">
         <button>Login</button>
       </Link>
-      {rUsername && <span>welcome {rUsername}!</span>}
-      {error && <span>{error}</span>}
+      {rUsername && <span class="success">welcome {rUsername}!</span>}
+      {error && <span class="error">{error}</span>}
     </div>
   );
 }
