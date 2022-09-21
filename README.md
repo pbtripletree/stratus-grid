@@ -16,7 +16,7 @@ npm i -g @adonisjs/cli
 
 Create a new local MySQL database. Note the database name and your username/password for configuring the API environment.
 
-Now, create a .env file in the root of /server with the following vars, plugging in user/password/database from above.
+Now, create a .env file in `/stratus-grid/server` with the following vars, plugging in user/password/database from above.
 
 ```
 HOST=127.0.0.1
@@ -35,11 +35,11 @@ SESSION_DRIVER=cookie
 HASH_DRIVER=bcrypt
 ```
 
-Run `./server.sh` in the root directory to install dependencies, run migrations and seeders, run tests, and start your API server!
+Run `./server.sh` found in `/stratus-grid` to install dependencies, run migrations and seeders, run tests, and start your API server!
 
 ### Client
 
-Open a separate terminal tab, and run `./client.sh` to do the same for your React.js client. Once localhost:3000 is showing data, you're good to go!
+Open a separate terminal tab, and run `./client.sh` found in `/stratus-grid` to do the same for your React.js client. Once localhost:3000 is showing data, you're good to go!
 
 ## What do I do?
 
