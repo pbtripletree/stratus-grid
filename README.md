@@ -8,17 +8,15 @@ You can either browse as a visitor, or create an account to participate. Follow 
 
 ### Server
 
-Install the Adonis CLI globally, if you don't have it installed:
+Install the Adonis CLI globally:
 
 ```bash
 npm i -g @adonisjs/cli
 ```
 
-Run `cd server && npm install` to setup your server dependencies.
-
 Create a new local MySQL database. Note the database name and your username/password for configuring the API environment.
 
-Now, create a .env file in the root of /server with the following vars, plugging in user/password/database from above.
+Now, create a .env file in `/stratus-grid/server` with the following vars, plugging in user/password/database from above.
 
 ```
 HOST=127.0.0.1
@@ -37,17 +35,11 @@ SESSION_DRIVER=cookie
 HASH_DRIVER=bcrypt
 ```
 
-Run the following in order to spin up your tables, create sample data, and start your API server!
-
-`adonis migration:run && adonis seed && adonis serve --dev`
+Run `./server.sh` found in `/stratus-grid` to install dependencies, run migrations and seeders, run tests, and start your API server!
 
 ### Client
 
-Open a separate terminal tab, and run `cd ../client && npm install` to install your client dependencies.
-
-Run `npm start`.
-
-You're all set!
+Open a separate terminal tab, and run `./client.sh` found in `/stratus-grid` to do the same for your React.js client. Once localhost:3000 is showing data, you're good to go!
 
 ## What do I do?
 
@@ -57,4 +49,4 @@ Anyone can search discussions. This checks for matching text within the comments
 
 Create an account once you're chomping at the bit to clap back at the non-sensical seeded comments. The minimal navigation options should lead you right back to the discussions list when you're signed up.
 
-Redux isn't yet setup to persist through reloads. So if you'd like to test from the top, just give the app a refresh.
+Redux isn't yet setup to persist through reload. So if you'd like to test from the top without an account, just give the page a refresh.
