@@ -1,17 +1,17 @@
-"use strict";
+'use strict'
 
 const success = (status, message, body) => ({
   status,
   message,
-  body,
-});
+  body
+})
 
 const error = (status, error) => ({
   status,
-  error,
-});
+  error
+})
 
 module.exports = {
   success,
-  error,
-};
+  error
+}
