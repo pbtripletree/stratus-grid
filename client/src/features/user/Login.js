@@ -16,7 +16,7 @@ export function Login() {
     <div className={styles.authForm}>
       <h3>Login</h3>
       {username.length ? (
-        <span>Logged in as: {username}</span>
+        <p className={styles.greeting}>Welcome {username}</p>
       ) : (
         [
           <input
@@ -51,8 +51,8 @@ export function Login() {
             >
               Logout
             </button>,
-            <Link to="/discussions">
-              <button>Discussions</button>
+            <Link to="/">
+              <button>View discussions</button>
             </Link>,
           ]}
       {error && <span class="error">{error}</span>}

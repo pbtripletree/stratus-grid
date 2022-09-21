@@ -37,7 +37,7 @@ export function Comments() {
 
   return (
     <div>
-      <Link to="/discussions">
+      <Link to="/">
         <button>Back to discussions</button>
       </Link>
       <h3>{discussion?.title}</h3>

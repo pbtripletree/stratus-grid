@@ -27,6 +27,7 @@ export const registerUser = async (username, email, password) => {
         password,
       },
     });
+    return response.body;
   } catch (e) {
     throw "error registering user";
   }

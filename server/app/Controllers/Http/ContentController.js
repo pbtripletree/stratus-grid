@@ -78,6 +78,7 @@ class ContentController {
           builder.where("text", "like", `%${queryData.query}%`);
         })
         .with("user")
+        .orderBy("created_at", "desc")
         .fetch();
       return response
         .status(200)

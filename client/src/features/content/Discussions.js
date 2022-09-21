@@ -74,7 +74,7 @@ export function Discussions() {
               <br />
               posted by {discussion.user.username}
             </p>
-            <Link to={"/discussions/" + discussion.id}>
+            <Link to={`/${discussion.id}`}>
               <button onClick={() => dispatch(setDiscussion(discussion))}>
                 View
               </button>
