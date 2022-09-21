@@ -2,7 +2,7 @@
 
 ## Server
 
-Install the Adonis CLI globally, if you don't have so already:
+Install the Adonis CLI globally, if you don't have it installed:
 
 ```bash
 npm i -g @adonisjs/cli
