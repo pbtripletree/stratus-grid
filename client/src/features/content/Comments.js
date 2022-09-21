@@ -37,7 +37,7 @@ export function Comments() {
 
   return (
     <div>
-      <Link to="/discussions">
+      <Link to="/">
         <button>Back to discussions</button>
       </Link>
       <h3>{discussion?.title}</h3>
@@ -49,6 +49,7 @@ export function Comments() {
         [
           <input
             placeholder="comment text"
+            maxlength="200"
             onChange={(e) => setText(e.target.value)}
           ></input>,
           <button

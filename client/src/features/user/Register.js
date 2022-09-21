@@ -16,23 +16,40 @@ export function Register() {
   return (
     <div className={styles.authForm}>
       <h3>Register</h3>
-      <input
-        placeholder="username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
-      <input
-        placeholder="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={() => dispatch(register({ username, email, password }))}>
-        Register
-      </button>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
-      {rUsername && <span>welcome {rUsername}!</span>}
-      {error && <span>{error}</span>}
+      {!rUsername
+        ? [
+            <input
+              placeholder="username"
+              maxlength="80"
+              onChange={(e) => setUsername(e.target.value)}
+            />,
+            <input
+              placeholder="email"
+              maxlength="254"
+              onChange={(e) => setEmail(e.target.value)}
+            />,
+            <input
+              placeholder="password"
+              type="password"
+              maxlength="60"
+              onChange={(e) => setPassword(e.target.value)}
+            />,
+            <button
+              onClick={() => dispatch(register({ username, email, password }))}
+            >
+              Register
+            </button>,
+            <Link to="/login">
+              <button>Login</button>
+            </Link>,
+          ]
+        : [
+            <span className={styles.greeting}>welcome {rUsername}!</span>,
+            <Link to="/">
+              <button>View discussions</button>
+            </Link>,
+          ]}
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 }
