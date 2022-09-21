@@ -55,7 +55,7 @@ export function Login() {
               <button>View discussions</button>
             </Link>,
           ]}
-      {error && <span class="error">{error}</span>}
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 }
