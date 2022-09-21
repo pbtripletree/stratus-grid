@@ -1,6 +1,12 @@
-# Setup
+#Welcome
 
-## Server
+I've built a simple message board with an Adonis.js server, React.js client and a MySQL database. It consists of `discussions`, i.e. high level conversation topics, and `comments`, providing a means of discourse on said topics.
+
+You can either browse as a visitor, or create an account to participate. Follow the instructions below to get this up and running on your local machine!
+
+## Setup
+
+### Server
 
 Install the Adonis CLI globally, if you don't have it installed:
 
@@ -35,10 +41,20 @@ Run the following in order to spin up your tables, create sample data, and start
 
 `adonis migration:run && adonis seed && adonis serve --dev`
 
-## Client
+### Client
 
 Open a separate terminal tab, and run `cd ../client && npm install` to install your client dependencies.
 
 Run `npm start`.
 
-You're all set! Browse pre-seeded data, and create an account so you can post some discussions and comments of your own.
+You're all set!
+
+## What do I do?
+
+The first thing you'll see is a list of discussions populated with pre-seeded data. Thanks to the faker() it's not very compelling literature.
+
+Anyone can search discussions. This checks for matching text within the comments of a discussion, and returns a list of discussions accordingly. In order to reset this, just press `search` with an empty text field.
+
+Create an account once you're chomping at the bit to clap back at the non-sensical seeded comments. The minimal navigation options should lead you right back to the discussions list when you're signed up.
+
+Redux isn't yet setup to persist through reloads. So if you'd like to test from the top, just give the app a refresh.
