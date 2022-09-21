@@ -1,4 +1,4 @@
-#Welcome
+# Welcome
 
 I've built a simple message board with an Adonis.js server, React.js client and a MySQL database. It consists of `discussions`, i.e. high level conversation topics, and `comments`, providing a means of discourse on said topics.
 
