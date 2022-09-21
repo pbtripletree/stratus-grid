@@ -49,7 +49,7 @@ export function Comments() {
         [
           <input
             placeholder="comment text"
-            maxlength="200"
+            maxLength="200"
             onChange={(e) => setText(e.target.value)}
           ></input>,
           <button

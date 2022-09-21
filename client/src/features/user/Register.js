@@ -20,18 +20,18 @@ export function Register() {
         ? [
             <input
               placeholder="username"
-              maxlength="80"
+              maxLength="80"
               onChange={(e) => setUsername(e.target.value)}
             />,
             <input
               placeholder="email"
-              maxlength="254"
+              maxLength="254"
               onChange={(e) => setEmail(e.target.value)}
             />,
             <input
               placeholder="password"
               type="password"
-              maxlength="60"
+              maxLength="60"
               onChange={(e) => setPassword(e.target.value)}
             />,
             <button
